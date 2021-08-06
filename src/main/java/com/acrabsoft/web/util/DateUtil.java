@@ -14,6 +14,8 @@ public class DateUtil {
     //DateUtil.toString( startDate,DateUtil.DATE_LONG ) )
     public static final String DATE_YEAR = "yyyy";
     public static final String DATE_SHORTS = "yyyyMMdd";
+    public static final String DATE_TOO_LONG = "yyyy-MM-dd HH:mm:ss.SSS";
+
     public static final String DATE_SHORT = "yyyy-MM-dd";
     public static final String DATE_MONTH = "yyyy-MM";
     public static final String DATE_HM = "HH:mm";

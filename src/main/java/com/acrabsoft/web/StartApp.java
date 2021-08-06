@@ -18,6 +18,7 @@ public class StartApp
     {
 
     	SpringApplication.run(App.class, args);
+        SpringContextUtil.getBean( ScheduledTasks.class ).refreshParams1();
         SpringContextUtil.getBean( ScheduledTasks.class ).refreshParams();
         System.out.println("===============================>项目启动成功<===============================");
     }

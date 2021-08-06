@@ -199,7 +199,6 @@ public class HttpUtil {
                 while (reader.ready()){
                     result += reader.readLine();
                 }
-
             }
         } finally {
             if (reader != null) {

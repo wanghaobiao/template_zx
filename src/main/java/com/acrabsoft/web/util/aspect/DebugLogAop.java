@@ -25,7 +25,11 @@ public class DebugLogAop {
     @Value("${spring.profiles.active}")
     private String active;
 
-    @Pointcut("execution(* com.acrabsoft.web..*(..)  )")
+    @Pointcut("execution(* com.acrabsoft.web.service.sjt.pc.operation.web.manager..*(..)  ) || " +
+            " execution(* com.acrabsoft.web.service.sjt.pc.operation.web.appManage..*(..)) || " +
+            " execution(* com.acrabsoft.web.service.sjt.pc.operation.web.system..*(..)) || " +
+            " execution(* com.acrabsoft.web.service.sjt.pc.operation.web.outInterface..*(..)) || " +
+            " execution(* com.acrabsoft.web.service.sjt.pc.operation.web.kafka..*(..))")
     public static void webLog(){}
 
     /**
@@ -39,8 +43,7 @@ public class DebugLogAop {
     //execution表达式  可自行定义
     @Before("webLog()")
     public void advice(JoinPoint joinPoint) {
-        //PowerUtil.getString( active ).indexOf(  "dev" ) >= 0 ;
-        config.isOpne = true;
+        config.isOpne = PowerUtil.getString( active ).indexOf(  "dev" ) >= 0 ;
         DebugLogAopUtil.advice(joinPoint,config);
     }
 
@@ -55,8 +58,7 @@ public class DebugLogAop {
     //execution表达式  可自行定义
     @Around("webLog()")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
-        //PowerUtil.getString( active ).indexOf(  "dev" ) >= 0 ;
-        config.isOpne = true;
+        config.isOpne = PowerUtil.getString( active ).indexOf(  "dev" ) >= 0 ;
         return DebugLogAopUtil.around( joinPoint,config);
     }
 
