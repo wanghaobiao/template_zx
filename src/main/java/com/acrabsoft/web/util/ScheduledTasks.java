@@ -105,7 +105,6 @@ public class ScheduledTasks {
                 e.printStackTrace();
             }
         }
-
     }
 
 
